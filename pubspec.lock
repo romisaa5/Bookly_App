@@ -75,6 +75,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      sha256: d3a89184101baec7f4600d58840a764d2ef760fe1c5a20ef9e6b0e9b24a07a3a
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.8.0"
   get:
     dependency: "direct main"
     description:
@@ -83,6 +91,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.6"
+  kawsay_icons:
+    dependency: "direct main"
+    description:
+      name: kawsay_icons
+      sha256: ea70142e1d5885eb0f056c64a4d056fb293849223de07f993f7ffdcd40edbc23
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
   leak_tracker:
     dependency: transitive
     description:
