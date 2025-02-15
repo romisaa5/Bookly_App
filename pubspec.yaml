@@ -32,7 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.8.0
-  get: ^4.6.6
+ 
+  go_router: ^14.8.0
   google_fonts: ^6.2.1
   kawsay_icons: ^0.6.1
 
@@ -70,7 +71,6 @@ flutter:
         - asset: assets\fonts\GT Sectra Fine Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
