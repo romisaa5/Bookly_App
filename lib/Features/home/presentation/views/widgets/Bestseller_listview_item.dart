@@ -6,8 +6,8 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestsellerListviewItem extends StatelessWidget {
-  const BestsellerListviewItem({super.key});
+class BookListviewItem extends StatelessWidget {
+  const BookListviewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BestsellerListviewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.KBookdetailsListview);
       },
       child: SizedBox(
-          height: 120,
+          height: 135,
           child: Row(
             spacing: 30,
             children: [

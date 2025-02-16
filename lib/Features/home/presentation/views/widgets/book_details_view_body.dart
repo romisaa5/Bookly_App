@@ -12,7 +12,11 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var widthscreen = MediaQuery.of(context).size.width;
-    return Padding(
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
         children: [
@@ -39,7 +43,7 @@ class BookDetailsViewBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: CustomBoxAction(),
-            ),SizedBox(height: 40,),
+            ),Expanded(child: SizedBox(height: 40,)),
             Align(
               alignment: Alignment.centerLeft,
               child: Text('You can also like',style:styles.textstyle14.copyWith(
@@ -47,9 +51,14 @@ class BookDetailsViewBody extends StatelessWidget {
               ) ,),
             ),
             SizedBox(height: 20,),
-            SimilarBooksListview()
+            SimilarBooksListview(),
+            SizedBox(height: 20,),
         ],
       ),
+    ),
+        )
+      ],
     );
+  
   }
 }
