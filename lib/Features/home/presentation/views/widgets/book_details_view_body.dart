@@ -38,9 +38,9 @@ class BookDetailsViewBody extends StatelessWidget {
               ),),
             ),
               SizedBox(height: 18,),
-            BookRating(
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
+            // BookRating(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            // ),
               SizedBox(height: 24,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),

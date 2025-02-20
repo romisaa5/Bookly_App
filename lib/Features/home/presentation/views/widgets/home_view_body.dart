@@ -12,12 +12,13 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppbar(),
+
               FeaturedBooksListview(),
               SizedBox(
                 height: 40,
@@ -33,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
               spacing: 20,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Best Seller', style: styles.textstyle18),
+                Text('Newest Books', style: styles.textstyle18),
               SizedBox(
                 height: 20
               )

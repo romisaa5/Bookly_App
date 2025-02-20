@@ -1,14 +1,16 @@
+import 'package:bookly/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/Features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
-import 'package:bookly/core/utils/assets.dart';
+
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListviewItem extends StatelessWidget {
-  const BookListviewItem({super.key});
-
+  const BookListviewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,20 +22,8 @@ class BookListviewItem extends StatelessWidget {
           child: Row(
             spacing: 30,
             children: [
-              AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: Container(
-                  height: 300,
-                  width: 250,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color.fromARGB(255, 219, 173, 143),
-                      image: DecorationImage(
-                          image: AssetImage(AssetsData.testimage),
-                          fit: BoxFit.fill)),
-                ),
-              ),
-              Expanded(
+            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail)
+            ,  Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 3,
@@ -41,7 +31,7 @@ class BookListviewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .5,
                       child: Text(
-                        'Harry Poter and The Goplet of Fire',
+                    bookModel.volumeInfo.title!,
                         style: styles.textstyle20
                             .copyWith(fontFamily: Kfontfamily1),
                         maxLines: 2,
@@ -49,18 +39,20 @@ class BookListviewItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Harry Poter and The Goplet of Fire',
+                     bookModel.volumeInfo.authors![0],
                       style: styles.textstyle14,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          r'19.99 $',
+                          'Free',
                           style: styles.textstyle20
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
                         BookRating(
+                          rating: bookModel.volumeInfo.maturityRating!,
+                          count:bookModel.volumeInfo.pageCount! ,
                           mainAxisAlignment: MainAxisAlignment.center,
                         )
                       ],
