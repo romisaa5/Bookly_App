@@ -12,29 +12,26 @@ class FeaturedBooksListview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
       builder: (context, state) {
-
         if (state is FeaturedBooksSuccess) {
-
           return SizedBox(
             height: MediaQuery.of(context).size.height * .3,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: state.books.length,
+                physics: BouncingScrollPhysics(),
+                itemCount: state.books.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: EdgeInsets.symmetric(horizontal: 8.0),
                     child: CustomBookImage(
-                      imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail??'assets/images/book.jpg',
                     ),
                   );
                 }),
           );
         } else if (state is FeaturedBooksFailure) {
-       
           return CustomErrorWidget(errormessage: state.errormessage);
         } else {
-
           return CustomLoadingIndicator();
         }
       },

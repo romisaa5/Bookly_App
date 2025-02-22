@@ -15,15 +15,17 @@ class BookListviewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.KBookdetailsListview);
+        GoRouter.of(context).push(AppRouter.KBookdetailsListview,extra: bookModel);
       },
       child: SizedBox(
           height: 135,
           child: Row(
             spacing: 30,
             children: [
-            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail)
-            ,  Expanded(
+              CustomBookImage(
+                  imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                      'assets/images/book.jpg'),
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 3,
@@ -31,7 +33,7 @@ class BookListviewItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .5,
                       child: Text(
-                    bookModel.volumeInfo.title!,
+                        bookModel.volumeInfo.title!,
                         style: styles.textstyle20
                             .copyWith(fontFamily: Kfontfamily1),
                         maxLines: 2,
@@ -39,7 +41,7 @@ class BookListviewItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                     bookModel.volumeInfo.authors![0],
+                      bookModel.volumeInfo.authors![0],
                       style: styles.textstyle14,
                     ),
                     Row(
@@ -52,7 +54,7 @@ class BookListviewItem extends StatelessWidget {
                         ),
                         BookRating(
                           rating: bookModel.volumeInfo.maturityRating!,
-                          count:bookModel.volumeInfo.pageCount! ,
+                          count: bookModel.volumeInfo.pageCount!,
                           mainAxisAlignment: MainAxisAlignment.center,
                         )
                       ],
