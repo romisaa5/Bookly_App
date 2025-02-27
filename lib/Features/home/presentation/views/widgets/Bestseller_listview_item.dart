@@ -41,7 +41,7 @@ class BookListviewItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      bookModel.volumeInfo.authors![0],
+                      bookModel.volumeInfo.authors?[0]??'0',
                       style: styles.textstyle14,
                     ),
                     Row(
@@ -49,7 +49,7 @@ class BookListviewItem extends StatelessWidget {
                       children: [
                         Text(
                           'Free',
-                          style: styles.textstyle20
+                          style: styles.textstyle14
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
                         BookRating(

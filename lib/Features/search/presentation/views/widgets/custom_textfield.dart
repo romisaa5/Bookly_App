@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextfield extends StatelessWidget {
-  const CustomTextfield({super.key});
+  final Function(String) onChanged; // ✅ استقبال دالة البحث
+
+  const CustomTextfield({super.key, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged, // ✅ استدعاء البحث عند الكتابة
       decoration: InputDecoration(
         hintText: "Search for a book...",
         prefixIcon: Opacity(
